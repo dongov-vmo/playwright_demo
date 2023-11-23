@@ -4,16 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --headed --reporter=allure-playwright",
-    "open:allure-report": "npx allure generate allure-results --clean && allure open"
+    "test:playwright": "playwright test --headed",
+    "test.watch": "jest --watchAll",
+    "test:record": "npx playwright codegen https://react-redux.realworld.io/",
+    "allureReport": "allure serve"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.40.0",
+    "@types/node": "^20.9.4",
     "allure-commandline": "^2.24.1",
     "allure-playwright": "^2.9.2",
     "moment": "^2.29.4"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0",
+    "winston": "^3.11.0"
   }
 }

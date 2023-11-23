@@ -16,12 +16,27 @@ export default defineConfig({
    },
    
    /* Run tests in files in parallel */
-//   fullyParallel: true,
-   reporter: [["dot"], ["json", {
-      outputFile: "jsonReports/jsonReport.json"
-   }], ["html", {
-      // open report by playwright
-      // open: "always"
-      open:'never'
-   }]]
+  fullyParallel: true,
+  retries:1,
+   // reporter: [["dot"], ["json", {
+   //    outputFile: "jsonReports/jsonReport.json"
+   // }], ["html", {
+   //    // open report by playwright
+   //    // open: "always"
+   //    open:'never'
+   // }]]
+
+   // ************************************************** 
+
+     // Reporter configuration
+  reporter: [
+   ['html', 'line'], // HTML and Line reporters
+   ['./reportConfig.ts'], // Custom reporter configuration file
+   ['allure-playwright', {
+     detail: true,
+     outputFolder: "allure-results",
+     suiteTitle: false,
+     open:'never',
+   }],
+ ],
 });
