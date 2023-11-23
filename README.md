@@ -26,5 +26,5 @@ npx playwright test addToCartUsingFixture.test.ts
 
 open Allure report
 ```bash
-npm run open:allure-report
+npm run allureReport
 ```

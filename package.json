@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:playwright": "playwright test --headed",
-    "test.watch": "jest --watchAll",
-    "test:record": "npx playwright codegen https://react-redux.realworld.io/",
+    "test": "playwright test --headed",
     "allureReport": "allure serve"
   },
   "keywords": [],
