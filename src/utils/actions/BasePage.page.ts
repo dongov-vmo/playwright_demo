@@ -1,11 +1,17 @@
 import { Page, ElementHandle } from '@playwright/test';
+export class BasePage{
+    constructor(private page:Page){};
+    public async navi(url:string): Promise<void>{
+        await this.page.goto(url);
+    }
+}
 
 /**
  * Navigates to a specified URL in a web page using the Playwright library.
  * @param page - An instance of the `Page` class from the Playwright library.
  * @param url - A string representing the URL to navigate to.
  */
-export async function navigateToUrl(page: Page, url: string): Promise<void> {
+export async function navigateToUrl(page: Page,url: string): Promise<void> {
   await page.goto(url);
 }
 

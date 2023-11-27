@@ -1,27 +1,27 @@
 import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
-   testMatch: ["**/test/**/*.test.ts"],
-   use: {
+  testMatch: ["**/test/**/*.test.ts"],
+  use: {
 
-      baseURL: "https://ecommerce-playground.lambdatest.io/index.php?",
-      // headless: true,
-      headless: false,
-      screenshot: "only-on-failure",
-      video: "retain-on-failure",
-      trace: 'on-first-retry',
-      viewport: { width: 1920, height: 1080 },
-   },
-     // Reporter configuration
+    baseURL: "https://ecommerce-playground.lambdatest.io/index.php?",
+    // headless: true,
+    headless: false,
+    screenshot: "only-on-failure",
+    video: "off",
+    trace: 'retain-on-failure',
+    viewport: { width: 1920, height: 1080 },
+  },
+  // Reporter configuration
   reporter: [
-   ['html', {open:'never'}],['line'], // HTML and Line reporters
-   ['allure-playwright', {
-     detail: true,
-     outputFolder: "allure-results",
-     suiteTitle: false,
-   }],
- ],
- 
+    ['html', { open: 'never' }], ['line'], // HTML and Line reporters
+    ['allure-playwright', {
+      detail: true,
+      outputFolder: "allure-results",
+      suiteTitle: false,
+    }],
+  ],
+
   /* Configure projects for major browsers */
   // projects: [
   //   {
