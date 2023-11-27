@@ -2,5 +2,6 @@
     "firstname": "Automation",
     "lastname": "Test",
     "phone_number": "0123456789",
-    "password": "test@123"
+    "password": "test@123",
+    "email":"playwright_ts_907@hotmail.com"
 }

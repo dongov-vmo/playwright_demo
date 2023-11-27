@@ -5,7 +5,7 @@ export const registerLocators = {
     phone:"input[name='telephone']",
     password:"input[name='password']",
     confirmPassword:"input[name='confirm']",
-    contunueBtn:"input[value='Continue']",
+    continueBtn:"input[value='Continue']",
     isSubscribe:"#input-newsletter-no",
     privacyPolicy:"//label[@for='input-agree']",
 

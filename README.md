@@ -23,8 +23,21 @@ Run a test
 ```bash
 npx playwright test addToCartUsingFixture.test.ts
 ```
+Run test with tag
+```bash
+npx playwright test --grep "@test_02"
+```
+
+Enable parallelization
+```bash
+npx playwright test --workers=3
+```
 
 open Allure report
 ```bash
 npm run allureReport
 ```
+refer
+https://www.youtube.com/watch?v=wawbt1cATsk
+https://playwright.dev/docs/test-projects
+

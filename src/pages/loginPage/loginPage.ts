@@ -11,12 +11,10 @@ export default class LoginPage {
     }
 
     async enterEmail(emailAddress: string) {
-        await this.page.locator(loginLocators.email)
-            .fill(emailAddress);
+        await this.page.fill(loginLocators.email,emailAddress);
     }
     async enterLoginPassword(password: string) {
-        await this.page.locator(loginLocators.password)
-            .fill(password);
+        await this.page.fill(loginLocators.password,password);
     }
     async clickLoginBtn() {
         await this.page.click(loginLocators.loginBtn);

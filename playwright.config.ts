@@ -1,4 +1,4 @@
-import {defineConfig} from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
    testMatch: ["**/test/**/*.test.ts"],
@@ -10,24 +10,53 @@ export default defineConfig({
       screenshot: "only-on-failure",
       video: "retain-on-failure",
       trace: 'on-first-retry',
-      launchOptions: {
-         args: ["--start-maximized"]
-       }
+      viewport: { width: 1920, height: 1080 },
    },
-   
-   /* Run tests in files in parallel */
-//   fullyParallel: true,
-//   retries:1,
-   // ************************************************** 
-
      // Reporter configuration
   reporter: [
    ['html', {open:'never'}],['line'], // HTML and Line reporters
-   ['./reportConfig.ts'], // Custom reporter configuration file
    ['allure-playwright', {
      detail: true,
      outputFolder: "allure-results",
      suiteTitle: false,
    }],
  ],
+ 
+  /* Configure projects for major browsers */
+  // projects: [
+  //   {
+  //     name: 'chromium',
+  //     use: { ...devices['Desktop Chrome'], trace: process.env.CI ? 'on-first-retry' : 'on-first-retry' },
+  //   },
+
+  //   {
+  //     name: 'firefox',
+  //     use: { ...devices['Desktop Firefox'],channel: 'firefox' }
+  //   },
+
+  //   {
+  //     name: 'webkit',
+  //     use: { ...devices['Desktop Safari'] }
+  //   },
+
+  //   /* Test against mobile viewports. */
+  //   {
+  //     name: 'Mobile Chrome',
+  //     use: { ...devices['Pixel 5'] },
+  //   },
+  //   {
+  //     name: 'Mobile Safari',
+  //     use: { ...devices['iPhone 12'] },
+  //   },
+
+  //   /* Test against branded browsers. */
+  //   {
+  //     name: 'Microsoft Edge',
+  //     use: { ...devices['Desktop Edge'], channel: 'msedge' },
+  //   },
+  //   {
+  //     name: 'Google Chrome',
+  //     use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+  //   },
+  // ]
 });

@@ -1,42 +1,37 @@
 import { Page } from "@playwright/test";
 import { registerLocators } from "./registerLocators";
 
+
 export default class RegisterPage {
-    constructor(public page: Page) { }
+    constructor(private page: Page) { }
 
     async enterFirstName(firstName: string) {
-        await this.page.locator(registerLocators.firstName)
-            .fill(firstName);
+        await this.page.fill(registerLocators.firstName,firstName);
     }
     async enterLastName(lastName: string) {
-        await this.page.locator(registerLocators.lastName)
-            .fill(lastName);
+        await this.page.fill(registerLocators.lastName,lastName);
     }
     async enterEmail(email: string) {
-        await this.page.locator(registerLocators.email)
-            .fill(email);
+        await this.page.fill(registerLocators.email,email);
     }
     async enterTelePhone(phone: string) {
-        await this.page.locator(registerLocators.phone)
-            .fill(phone);
+        await this.page.fill(registerLocators.phone,phone);
     }
     async enterPassword(password: string) {
-        await this.page.locator(registerLocators.password)
-            .fill(password);
+        await this.page.fill(registerLocators.password,password);
     }
     async enterConfirmPassword(password: string) {
-        await this.page.locator(registerLocators.confirmPassword)
-            .fill(password);
+        await this.page.fill(registerLocators.confirmPassword,password);
     }
     isSubscribeChecked() {
         return this.page.locator(registerLocators.isSubscribe);
     }
-    async clickTermandCondition() {
+    async clickTermAndCondition() {
         await this.page.click(registerLocators.privacyPolicy);
     }
     async clickContinueToRegister() {
         await Promise.all([
-            this.page.click(registerLocators.contunueBtn)
+            this.page.click(registerLocators.continueBtn)
         ]);
     }
 }
