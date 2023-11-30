@@ -1,4 +1,4 @@
-import { expect, test } from "../../base/pomFixture";
+import { expect, test } from "../../base/Fixture";
 import * as data from "../../resources/add-to-card-test-data.json"
 
 test.describe("Page object model test demo", async () => {

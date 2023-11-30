@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import { specialHot } from "./specialHotLocators";
+import { specialHot } from "./SpecialHotLocators";
 import { WebActions } from "../../core/playwright/actions/WebActions";
 
 export default class SpecialHotPage {

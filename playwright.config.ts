@@ -12,11 +12,12 @@ export default defineConfig({
     viewport: { width: 1920, height: 1080 },
   },
   // fullyParallel: true,
-  workers:3,
+  workers: 3,
   // Reporter configuration
   reporter: [
     ['html', { open: 'never' }],
-    ['list'], // HTML and Line reporters
+    ['list'],
+    ['./src/core/supports/logger/./reportConfig.ts'], // HTML and Line reporters
     ['allure-playwright', {
       detail: true,
       outputFolder: "allure-results",
@@ -28,18 +29,28 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome']},
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1920, height: 1080 },
+      },
       testMatch: ["**/test/chrome/*.test.ts"],
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'],channel: 'firefox' }
+      use: {
+        ...devices['Desktop Firefox'],
+        channel: 'firefox',
+        viewport: { width: 1920, height: 1080 },
+      }
     },
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: {
+        ...devices['Desktop Safari'],
+        viewport: { width: 1920, height: 1080 },
+      },
       testMatch: ["**/test/webkit/*.test.ts"],
     },
 
@@ -56,11 +67,19 @@ export default defineConfig({
     /* Test against branded browsers. */
     {
       name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
+      use: {
+        ...devices['Desktop Edge'],
+        channel: 'msedge',
+        viewport: { width: 1920, height: 1080 },
+      },
     },
     {
       name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: 'chrome',
+        viewport: { width: 1920, height: 1080 },
+      },
     },
   ]
 });

@@ -1,8 +1,8 @@
 import { test as baseTest } from "@playwright/test";
-import RegisterPage from "../../pages/registerPage/registerPage";
-import LoginPage from "../../pages/loginPage/loginPage";
-import HomePage from "../../pages/homePage/homePage";
-import SpecialHotPage from "../../pages/specialHotPage/specialHotPage";
+import RegisterPage from "../../pages/registerPage/RegisterPage";
+import LoginPage from "../../pages/loginPage/LoginPage";
+import HomePage from "../../pages/homePage/HomePage";
+import SpecialHotPage from "../../pages/specialHotPage/SpecialHotPage";
 
 
 type pages = {

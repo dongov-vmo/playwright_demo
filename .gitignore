@@ -406,3 +406,4 @@ jsonReports/
 /playwright/.cache/
 allure-report
 allure-results
+log

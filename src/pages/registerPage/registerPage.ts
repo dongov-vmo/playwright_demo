@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import { registerLocators } from "./registerLocators";
+import { registerLocators } from "./RegisterLocators";
 import { WebActions } from "../../core/playwright/actions/WebActions";
 
 

@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import { locators } from "./homePageLocators";
+import { locators } from "./HomePageLocators";
 import { WebActions } from "../../core/playwright/actions/WebActions";
 
 export default class HomePage {

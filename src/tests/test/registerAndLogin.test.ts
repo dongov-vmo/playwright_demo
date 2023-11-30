@@ -1,5 +1,5 @@
 
-import { expect, test } from "../base/pomFixture";
+import { expect, test } from "../base/Fixture";
 import * as data from "../resources/add-to-card-test-data.json"
 
 const randomName = Math.floor(Math.random() * 1000);
