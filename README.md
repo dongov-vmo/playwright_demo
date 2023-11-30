@@ -28,11 +28,6 @@ Run test with tag
 npx playwright test --grep "@test_02"
 ```
 
-Enable parallelization
-```bash
-npx playwright test --workers=3
-```
-
 open Allure report
 ```bash
 npm run allureReport
