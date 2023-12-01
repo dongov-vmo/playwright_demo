@@ -6,7 +6,7 @@ export default defineConfig({
     baseURL: "https://ecommerce-playground.lambdatest.io/index.php?",
     // headless: true,
     headless: false,
-    screenshot: "only-on-failure",
+    screenshot: "on",
     video: "off",
     trace: 'retain-on-failure',
     viewport: { width: 1920, height: 1080 },
