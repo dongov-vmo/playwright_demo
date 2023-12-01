@@ -1,4 +1,4 @@
-import { Reporter, FullConfig, Suite, TestCase, TestError, TestResult, TestStep } from "@playwright/test/reporter";
+import { Reporter, FullConfig, Suite, TestCase, TestError, TestResult, TestStep, FullResult } from "@playwright/test/reporter";
 import { createLogger, format, transports } from 'winston';
 
 import { existsSync, mkdirSync } from 'fs';
@@ -34,7 +34,6 @@ const logger = createLogger({
 });
 
 export default class MyReporter implements Reporter {
-
     /**
      * Logs the completion of each test case and its status.
      * @param test - The test case.
@@ -42,29 +41,19 @@ export default class MyReporter implements Reporter {
      */
     onTestEnd(test: TestCase, result: TestResult): void {
         if (result.status != "passed") {
-            logger.info(`=========================== logs ===========================`)
-            logger.info(`Test Case Completed: ${test.title}: ${result.status.toUpperCase()}`);
-            logger.info(`Error: ${result.error?.message}`);
+            logger.info(`##############################################################################`)
+            logger.info(`Test Case Completed: ${test.title.toUpperCase()}: ${result.status.toUpperCase()}`);
+            logger.info(`##############################################################################`)
+            if (result.status === "timedOut") {
+                logger.info(`Error: ${result.error?.message}`);
+                logger.info(`${result.error?.stack}`);
+                logger.info(`${result.error?.snippet}`);
+            } else {
+                logger.info(`${result.error?.stack}`);
+                logger.info(`${result.error?.snippet}`);
+            }
+            logger.info(`\n`)
         }
     }
 
-    /**
-     * Logs the execution of each test step if it belongs to the "test.step" category.
-     * @param test - The test case.
-     * @param result - The test result.
-     * @param step - The test step.
-     */
-    onStepBegin(test: TestCase, result: TestResult, step: TestStep): void {
-        if (step.category === 'test.step') {
-            logger.info(`Executing Step: ${step.title}`);
-        }
-    }
-
-    /**
-     * Logs the error message when an error occurs during the test execution.
-     * @param error - The test error.
-     */
-    onError(error: TestError): void {
-        logger.info(error.message)
-    }
 }
