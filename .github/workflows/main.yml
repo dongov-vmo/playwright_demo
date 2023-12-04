@@ -13,16 +13,16 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 18
-    - name: Check folder
-      run:  tree /f
+    - name: Install tree
+      run:  sudo apt install tree
+    - name: Check Project Structure
+      run:  tree
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Install allure report
       run: npm install allure-commandline allure-playwright --save-dev
-    - name: Check folder
-      run:  tree /f
     - name: Run Playwright tests
       run: npx playwright test --project='Google Chrome'
     - name: Generate allure report
