@@ -122,6 +122,16 @@ export class WebActions {
         await this.page.press(selector, 'Tab');
     }
 
+    async switchToNewWindow(selector: string): Promise<Page> {
+        let [newPage] = [this.page];
+        [newPage] = await Promise.all([
+          this.page.context().waitForEvent("page"),
+          await this.clickElement(selector),
+        ]);
+        await newPage.waitForLoadState()
+        return newPage;
+      }
+
 }
 module.exports = { WebActions }
 

@@ -12,8 +12,8 @@ export default class HomePage {
     async waitForLoadState() {
         await this.page.waitForLoadState();
     }
-    async clickOnMegeMenuToApple() {
-        await this.page.hover(locators.megeMenu);
+    async clickOnMegaMenuToApple() {
+        await this.page.hover(locators.megaMenu);
         await this.page.click(locators.apple);
     }
     async switchToNewWindow(selector: string): Promise<Page> {
