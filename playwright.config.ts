@@ -4,8 +4,8 @@ export default defineConfig({
   testMatch: ["**/test/**/*.test.ts"],
   use: {
     baseURL: "https://ecommerce-playground.lambdatest.io/index.php?",
-    // headless: true,
-    headless: false,
+    headless: true,
+    // headless: false,
     screenshot: "on",
     video: "off",
     trace: 'retain-on-failure',
