@@ -1,38 +1,41 @@
-# playwright-tutorial 
-install:
-Install node
+# Playwright-tutorial 
+
+# Install:
+- Install node
 ```bash
 npm i
 ```
-Install framework playwright/test
+- Install framework playwright/test
 
 ```bash
 npx @playwright/test install
 ```
 
-Install Allure report
+- Install Allure report
 ```bash
 npm install allure-commandline allure-playwright --save-dev
 ```
 
-Run all test
+- Run all test
 ```bash
 npm run test
 ```
-Run a test
+- Run a test
 ```bash
 npx playwright test addToCartUsingFixture.test.ts
 ```
-Run test with tag
+- Run test with tag
 ```bash
 npx playwright test --grep "@test_02"
 ```
 
-open Allure report
+- Open Allure report
 ```bash
 npm run allureReport
 ```
-refer
+# Refer
 https://www.youtube.com/watch?v=wawbt1cATsk
+
 https://playwright.dev/docs/test-projects
 
+https://github.com/actions/upload-artifact#zipped-artifact-downloads

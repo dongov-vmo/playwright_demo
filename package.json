@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test --headed",
-    "allureReport": "npx allure serve allure-results",
+    "allureReport": "npx allure generate allure-results --clean && allure open",
     "deleteAllureResults": "del-cli --force allure-results"
   },
   "keywords": [],

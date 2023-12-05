@@ -41,18 +41,19 @@ export default class MyReporter implements Reporter {
      */
     onTestEnd(test: TestCase, result: TestResult): void {
         if (result.status != "passed") {
+           ` \n`
             logger.info(`##############################################################################`)
             logger.info(`Test Case Completed: ${test.title.toUpperCase()}: ${result.status.toUpperCase()}`);
             logger.info(`##############################################################################`)
-            if (result.status === "timedOut") {
-                logger.info(`Error: ${result.error?.message}`);
+            if (result.status === "failed") {
                 logger.info(`${result.error?.stack}`);
                 logger.info(`${result.error?.snippet}`);
             } else {
-                logger.info(`${result.error?.stack}`);
-                logger.info(`${result.error?.snippet}`);
+                logger.info(`Error: ${result.error?.message}`);
+                logger.info(`${(result.errors[1]?.message)}`);
+                logger.info(`${(result.errors[1]?.snippet)}`);
+                logger.info(`${(result.errors[1]?.stack)}`);
             }
-            logger.info(`\n`)
         }
     }
 
