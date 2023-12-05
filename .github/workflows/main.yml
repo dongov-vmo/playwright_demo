@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 20
     - name: Install tree
       run:  sudo apt install tree
     - name: Check Project Structure
@@ -26,12 +26,14 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test --project='Google Chrome'
     - name: Generate allure report
-      run: npm run allureReport
+      run: npx allure generate allure-results
+      if: always()
     - name: Delete allure results
-      run: npm run deleteAllureResults
+      run: npx del-cli --force allure-results
+      if: always()
     - uses: actions/upload-artifact@v3
       if: always()
       with:
         name: allure-report
         path: allure-report/
-        retention-days: 30
+        retention-days: 10
