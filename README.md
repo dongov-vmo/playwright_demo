@@ -16,10 +16,15 @@ npx @playwright/test install
 npm install allure-commandline allure-playwright --save-dev
 ```
 
-- Run all test
+- Run all test with all project
 ```bash
 npm run test
 ```
+- Run all test with project=Google Chome
+```bash
+npm run test -- --project='Google Chrome'
+```
+
 - Run a test
 ```bash
 npx playwright test addToCartUsingFixture.test.ts
